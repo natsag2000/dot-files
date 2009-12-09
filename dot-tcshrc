@@ -1,0 +1,177 @@
+# $FreeBSD: src/share/skel/dot.cshrc,v 1.14 2007/05/29 22:07:57 dougb Exp $
+#
+# .cshrc - csh resource script, read at beginning of execution by each shell
+#
+# see also csh(1), environ(7).
+#
+
+alias h		'history 25'
+alias j		'jobs -l'
+alias la	'ls -a'
+alias lf	'ls -FA'
+alias ll	'ls -lA'
+alias lo    'ls -lo'
+alias lr    'ls -R'                  # recursive
+alias lk    'ls -lhSr'               # sort by size
+alias lt    'ls -ltr'                # sort by modifiepd
+alias lu    'ls -ltur'               # sort by access time
+alias lm    'ls -al | more'          # pipe through 'more'
+alias lg    'ls -al | grep -i "\!*"' # pipe through 'grep'
+
+# A righteous umask
+umask 22
+
+set path = (/sbin /bin /usr/sbin /usr/bin /usr/games /usr/local/sbin /usr/local/bin)
+
+if ( -x ~/bin ) then
+    set  path=($path ~/bin)
+    cd ~/bin;
+    foreach P (`ls -F | grep "/" | sed "s/\///"`)
+        set path=($path ~/bin/$P);
+    end
+    cd -
+endif
+
+setenv	EDITOR	emacsclient
+setenv	PAGER	less
+setenv	BLOCKSIZE	K
+
+if ($?prompt) then
+	# An interactive shell -- set some stuff up
+	set filec
+	set history = 1000
+	set savehist = 300
+	set mail = (/var/mail/$USER)
+	if ( $?tcsh ) then
+		bindkey "^W" backward-delete-word
+		bindkey -k up history-search-backward
+		bindkey -k down history-search-forward
+	endif
+endif
+
+limit coredumpsize 0
+
+#------------------------------------------------------------
+# NAGI's dot.tcshrc file
+# stolen most them from:
+# http://www.dotfiles.com/files/21/453_.tcshrc
+#------------------------------------------------------------
+
+set prompt = '%m %# '
+# my environments
+setenv JAVA_HOME /usr/local/diablo-jdk1.6.0
+setenv SOURCES /home/nagi/sources
+setenv PROJECTS_HOME /home/nagi/projects
+setenv JBOSS_HOME /usr/local/jboss4
+#setenv JBOSS_HOME /home/nagi/opt/jboss-4.2.2.GA
+setenv MAVEN_HOME /home/nagi/.m2
+
+setenv SERVICE_HOME /service
+setenv IS_TRNR_HOME /home/nagi/mysource/ISTRNR
+setenv IS_TRNRLOG_HOME /var/multilog
+setenv IS_CORPUS_HOME /almp/corpus
+setenv ANDROID_SDK_ROOT /home/nagi/android/android
+
+setenv PYTHONPATH  /home/nagi/mysource/ISASR-trunk:/opt/zsi/lib/python2.5/site-packages
+setenv JCONF  /home/nagi/mysource/AM-demo/htk/am3mixed
+
+set path = (/home/nagi/mysource/ISTRNR/bin /opt/mp4tools/bin $JAVA_HOME/bin $HOME/android/android/tools $path)
+
+# some automatic fills
+set noglob
+    set hosts=(`awk '/^[1-9].*/ {print $2'} /etc/hosts` \
+                cvs.sourceforge.net ftp.sunet.se ftp.aol.com)
+    if ( -r $HOME/.ssh/known_hosts ) then
+		set f=`cat $HOME/.ssh/known_hosts | cut -f 1 -d \ ` >& /dev/null
+		set hosts=($hosts $f)
+		unset f
+    endif
+    complete {rsh,ssh,rlogin,ping,traceroute} p/1/\$hosts/
+unset noglob
+
+# complete find \
+#     'n/-anewer/f/'                   \
+#     'n/-cnewer/f/'                   \
+#     'n/-group/g/'                    \
+#     'n/-ilname/f/'                   \
+#     'n/-iname/f/'                    \
+#     'n/-ipath/f/'                    \
+#     'n/-iregex/f/'                   \
+#     'n/-lname/f/'                    \
+#     'n/-name/f/'                     \
+#     'n/-newer/f/'                    \
+#     'n/-path/f/'                     \
+#     'n/-regex/f/'                    \
+#     'n/-type/(b c d p f l s D)/'     \
+#     'n/-user/u/'                     \
+#     'n/-xtype/(b c d p f l s D)/'    \
+#     'n/-exec/c/'                     \
+#     'n/-fls/f/'                      \
+# p    'n/-fprint/f/'                   \
+#     'n/-fprint0/f/'                  \
+#     'n/-fprintf/f/'                  \
+#     'n/-ok/c/'                       \
+#     'c/--/(help version)/'           \
+#     'c/-/(daystart depth follow help maxdepth mindepth mount noleaf version xdev amin anewer atime cmin cnewer ctime empty false fstype gid group ilname iname inum ipath iregex links lname mmin mtime name newer nouser nogroup path perm regex size true type uid used user xtype exec fls fprint fprint0 fprintf ok print print0 printf prune ls)/' \
+#     'n/-fstype/(4.2 4.3 adfs affs autofs bdev coda coherent cramfs devpts efs ext ext2 ext3 hfs hpfs iso9660 jfs mfs minix msdos ncpfs nfs ntfs pipefs proc qnx4 ramfs reiserfs romfs rootfs S51K S52K shm smbfs sockfs sysv tmp tmpfs udf ufs umsdos usbfs usbdevfs vfat xenix xfs xiafs)/' \
+#     'p/*/d/'
+
+# Do not beep
+set nobeep
+
+set autolist
+
+# Enabled "complete" to "enhance".
+# If you have a file called "complete.tcsh" and you
+# want to edit it, do "vi c.t<TAB>" and that's it.
+set complete=enhance
+
+# Corrects spelling und capitalization
+set autocorrect
+
+# Watch any(1) other users every 0 seconds from any(2) console,
+# when logging in/out.(I like this one!)
+# It gives something like "root has logged on tty1 from local."
+set watch=(0 any any)
+
+alias p "${PAGER}"
+alias e "${EDITOR}"
+
+alias ee 'emacsclient -c -s "\!*"'
+alias eee 'emacsclient -c -nw -s "\!*"'
+# sound volume
+alias v   'mixer vol "\!*":"\!*"'
+# shutdown shortcut
+alias gohome    shutdown -p now
+# emacsclient
+alias ff       'find . -name "\!*" -print'
+alias rgrep	    'find . -type f -print | xargs grep -i \!* '
+alias rfind     'find . -type f -exec grep \!* {} \;'
+alias duh      'du -sch'
+alias dfh      'df -ih'
+alias lxconf   'p /etc/X11/xorg.conf'
+alias lrconf   'p /etc/rc.conf'
+alias lkernel  'p /usr/src/sys/i386/conf/MYKERNEL'
+
+alias extract  'tar xvfz \!*'
+alias bextract 'tar xvfj \!*'
+alias compress 'tar cvf - \!* | gzip -9cv > \!*.tar.gz'
+
+alias lll    'x-dict \!*'
+alias llll    'x-dict \!*'
+alias lllll    'x-dict \!*'
+alias leo    'x-dict \!*'
+
+alias jufile    julius -C ${JCONF}/jconf/tied.jconf -nostrip -headmargin 55 -norealtime -b2 90 -iwsp -spsegment -fallback1pass -iwcd1 best 4 -force_ccd -multipath -input file -quiet
+alias jumic    julius -C ${JCONF}/jconf/tied.jconf -nostrip -headmargin 55 -norealtime -quiet -forcedict -b2 90 -iwsp -spsegment -fallback1pass -iwcd1 best 4 -force_ccd -multipath
+alias cdmy    cd /home/nagi/mysource
+alias cdprj    cd /home/nagi/mysource/ISASR-trunk
+
+#standart aliases
+alias helpcommand man
+bindkey ^[OP run-help # F1 uxterm
+
+bindkey -b ^R i-search-back
+
+# load git instructions
+alias howto 'curl http://github.com/natsag2000/howtos/raw/master/howto-"\!*"'
