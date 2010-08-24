@@ -18,11 +18,12 @@ XTerm*scrollBar:	false
 XTerm*scrollKey:	true
 XTerm*scrollTtyOutput:	false
 #ifdef COLOR
-XTerm*background: LightYellow
-XTerm*foreground: black
+XTerm*background: black
+! LightYellow
+XTerm*foreground: RoyalBlue 
 XTerm*CursorColor: SeaGreen
-!XTerm*scrollbar*background:	black
-!XTerm*scrollbar*foreground:	RoyalBlue
+XTerm*scrollbar*background:	black
+XTerm*scrollbar*foreground:	RoyalBlue
 XTerm*color0: black
 XTerm*color1: LimeGreen
 XTerm*color2: pale green
@@ -45,59 +46,26 @@ UXTerm*scrollBar:	false
 UXTerm*scrollKey:	true
 UXTerm*scrollTtyOutput:	false
 #ifdef COLOR
-UXTerm*background: LightYellow
-UXTerm*foreground: black
+UXTerm*background: #000000 
+UXTerm*foreground: #9f9f9f 
 UXTerm*CursorColor: SeaGreen
 !UXTerm*scrollbar*background:	black
 !UXTerm*scrollbar*foreground:	RoyalBlue
-UXTerm*color0: black
-UXTerm*color1: LimeGreen
-UXTerm*color2: pale green
-UXTerm*color3: yellow green
-UXTerm*color4: blue
-UXTerm*color5: magenta
-UXTerm*color6: cyan
-UXTerm*color7: white
+UXTerm*color0: #000000
+UXTerm*color1: #9e1828
+UXTerm*color2: #aece92
+UXTerm*color3: #968a38
+UXTerm*color4: #414171
+UXTerm*color5: #963c59
+UXTerm*color6: #418179
+UXTerm*color7: #bebebe
+UXTerm*color8: #666666
+UXTerm*color9: #cf6171
+UXTerm*color10: #c5f779
+UXTerm*color11: #fff796
+UXTerm*color12: #4186be
+UXTerm*color13: #cf9ebe
+UXTerm*color14: #71bebe
+UXTerm*color15: #ffffff
 #endif
-
-URxvt*font: xft:DejaVu Sans Mono:pixelsize=12
-!URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=12 
-URxvt*urlLauncher: /usr/local/bin/firefox3
-URxvt*perl-ext-common: default, -readline, tabbed, digital-clock, matcher, searchable-scrollback, mark-urls, 
-URxvt.inheritPixmap : true
-URxvt.visualBell : true
-URxvt.scrollTtyKeypress : true
-URxvt.scrollTtyOutput : true
-URxvt.transparent: True
-URxvt.tintColor: blue
-URxvt.shading: 50
-URxvt.fading: 20
-URxvt.urlLauncher: firefox3
-URxvt.multichar_encoding: UTF-8
-URxvt*foreground: white
-URxvt*background: black
-URxvt*saveLines: 4000
-URxvt*secondaryScroll: True
-URxvt*scrollBar: false
-!URxvt.keysym.C-0: command:\033]710;suxuseuro\007\033]711;suxuseuro\007
-!URxvt.keysym.C-9: command:\033]710;9x15bold\007\033]711;9x15bold\007
-URxvt*color0: #242424
-URxvt*color1: #bf7979
-URxvt*color2: #97b26b
-URxvt*color3: #cdcda1
-URxvt*color4: #86a2be
-URxvt*color5: #d9b798
-URxvt*color6: #a1b5cd
-URxvt*color7: #ffffff
-URxvt*color8: #cdb5cd
-URxvt*color9: #f4a45f
-URxvt*color10: #c5f779
-URxvt*color11: #ffffaf
-URxvt*color12: #98afd9
-URxvt*color13: #d7d998
-URxvt*color14: #a1b5cd
-URxvt*color15: #dedede
-URxvt*colorUL: #86a2be
-URxvt*underlineColor: #86a2be
-URxvt*underlineURLs: true
 
