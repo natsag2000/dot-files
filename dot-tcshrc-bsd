@@ -169,3 +169,5 @@ alias howto 'curl http://github.com/natsag2000/howtos/raw/master/howto-"\!*"'
 
 alias ll 'ls -lG'
 alias ls 'ls -G'
+
+alias portfind 'echo /usr/ports/*/*"\!*"*'
