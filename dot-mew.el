@@ -20,7 +20,7 @@
          ("name"           . "Nagi")
          ("user"           . "USERNAME@googlemail.com")  ;; to be completed
          ("imap-server"    . "localhost")
-         ("imap-delete" . nil)
+         ("imap-delete" . t)
          ("imap-size" . 0)
          ("imap-ssl"       . t)
          ("imap-user"      . "USERNAME@googlemail.com")  ;; to be completed
