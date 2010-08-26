@@ -46,8 +46,8 @@ UXTerm*scrollBar:	false
 UXTerm*scrollKey:	true
 UXTerm*scrollTtyOutput:	false
 #ifdef COLOR
-UXTerm*background: #000000 
-UXTerm*foreground: #9f9f9f 
+UXTerm*background: #000000
+UXTerm*foreground: #9f9f9f
 UXTerm*CursorColor: SeaGreen
 !UXTerm*scrollbar*background:	black
 !UXTerm*scrollbar*foreground:	RoyalBlue
