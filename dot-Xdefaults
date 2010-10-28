@@ -5,6 +5,169 @@
 ! To reload .Xresources after making changes, enter:
 ! 	xrdb -merge ~/.Xresources
 
+! NAGI! use only one of them! (current is urxvt)
+
+! ---------
+! for Xterm
+! ---------
+XTerm*metaSendsEscape: true
+XTerm*eightBitInput: false
+
+! ---------------------------------------
+!  _   _ ___ __  ____   _______
+! | | | | _ \\ \/ /\ \ / /_   _|
+! | |_| |   / >  <  \ V /  | |
+!  \___/|_|_\/_/\_\  \_/   |_|
+!
+! nagi's urxvt setting
+! -----------------------------------------
+! Tab keyshortcuts:
+! shift + down arow : new tab
+! shift + <-        : go to left tab
+! shift + ->        : go to right tab
+! ctrl + <-         : move tab to the left
+! ctrl + ->         : move tab to the right
+! ctrl + d          : close tab
+! ------------------------------------------
+! perl-ext-common:
+! - matcher : for regex match
+! - tabbed  : for tabbing
+! ------------------------------------------
+
+! open link in browser
+URxvt.perl-ext-common : default,matcher,tabbed
+URxvt.urlLauncher     : firefox
+URxvt.matcher.button  : 1
+! save lines
+URxvt.saveLines:	65535
+! no scrollbar
+URxvt.scrollBar    : False
+! ???
+URxvt.pointerBlank : true
+! cursor color
+URxvt.cursorColor: yellow
+! underline is green
+URxvt.underlineColor: green
+! fonts
+URxvt.font: xft:Bitstream Vera Sans Mono:pixelsize=11:antialias=true
+URxvt*boldFont : xft:Bitstream Vera Sans Mono:pixelsize=11:antialias=true
+!URxvt*font : xft:Monospace:pixelsize=11
+!URxvt*boldFont : xft:Monospace:pixelsize=11
+! COLORS
+URxvt*background : #000000
+URxvt*foreground : #ffffff
+! URxvt.background   : #202020 !! gray
+! URxvt.foreground   : #999999 !! gray
+! black
+URxvt.color0  : #202020
+URxvt.color8  : #202020
+! red
+URxvt.color1  : #bb4444
+URxvt.color9  : #bb4444
+! green
+URxvt.color2  : #44bb44
+URxvt.color10 : #44bb44
+! yellow
+URxvt.color3  : #bbbb44
+URxvt.color11 : #bbbb44
+! blue
+URxvt.color4  : #4444aa
+URxvt.color12 : #4444aa
+! magenta
+URxvt.color5  : #bb44bb
+URxvt.color13 : #bb44bb
+! cyan
+URxvt.color6  : #44bbbb
+URxvt.color14 : #44bbbb
+! white
+URxvt.color7  : #999999
+URxvt.color15 : #999999
+! tab colors - comment out if you want default
+! Colors must be specified using color
+! indexes: 0 to 15 correspond to your color settings
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    3
+URxvt.tabbed.tab-bg:    0
+
+
+! -------------------------
+! ONE urxvt-unicode SETTING
+! -------------------------
+! ! font config
+! URxvt*font : xft:Monospace:pixelsize=11
+! URxvt*boldFont : xft:Monospace:pixelsize=11
+! ! fore/background color
+! URxvt*background : #000000
+! URxvt*foreground : #ffffff
+! !URxvt*foreground : #555555
+! ! black
+! URxvt.color0 : #000000
+! URxvt.color8 : #555555
+! ! red
+! URxvt.color1 : #AA0000
+! URxvt.color9 : #FF5555
+! ! green
+! URxvt.color2 : #00AA00
+! URxvt.color10 : #55FF55
+! ! yellow
+! URxvt.color3 : #AA5500
+! URxvt.color11 : #FFFF55
+! ! blue
+! URxvt.color4 : #0000AA
+! URxvt.color12 : #55FFFF
+! ! magenta
+! URxvt.color5 : #AA00AA
+! URxvt.color13 : #FF55FF
+! ! cyan
+! URxvt.color6 : #0000AA
+! URxvt.color14 : #55FFFF
+! ! white
+! URxvt.color7 : #AAAAAA
+! URxvt.color15 : #FFFFFF
+! ! open links in Browser
+! URxvt.perl-ext-common : default,matcher
+! URxvt.urlLauncher : firefox
+! URxvt.matcher.button : 1
+
+! -----------------------
+! ANOTHER URXVT SETTING
+! -----------------------
+! URxvt.background   : #202020
+! URxvt.foreground   : #999999
+! URxvt.font         : -*-*-*-*-*-*-18-*-*-*-*-*-*-*
+! URxvt.pointerBlank : true
+
+! black
+! URxvt.color0  : #202020
+! URxvt.color8  : #202020
+! ! red
+! URxvt.color1  : #bb4444
+! URxvt.color9  : #bb4444
+! ! green
+! URxvt.color2  : #44bb44
+! URxvt.color10 : #44bb44
+! ! yellow
+! URxvt.color3  : #bbbb44
+! URxvt.color11 : #bbbb44
+! ! blue
+! URxvt.color4  : #4444aa
+! URxvt.color12 : #4444aa
+! ! magenta
+! URxvt.color5  : #bb44bb
+! URxvt.color13 : #bb44bb
+! ! cyan
+! URxvt.color6  : #44bbbb
+! URxvt.color14 : #44bbbb
+! ! white
+! URxvt.color7  : #999999
+! URxvt.color15 : #999999
+
+
+!! ============================
+!! OBSOLETE XTERM CONFIGURATION  \/
+!! ============================
+
 XTerm*locale: true
 XTerm*font:     -misc-fixed-medium-r-normal-*-18-120-100-100-c-90-iso10646-1
 XTerm*wideFont: -misc-fixed-medium-r-normal-*-18-120-100-100-c-180-iso10646-1
@@ -34,7 +197,7 @@ XTerm*color6: cyan
 XTerm*color7: white
 #endif
 
-! for UXTerm 
+! for UXTerm
 !UXTerm*font:     -misc-fixed-medium-r-normal-*-18-120-100-100-c-90-iso10646-1
 !UXTerm*wideFont: -misc-fixed-medium-r-normal-*-18-120-100-100-c-180-iso10646-1
 UXTerm*saveLines:	5000
