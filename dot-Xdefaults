@@ -38,6 +38,8 @@ XTerm*eightBitInput: false
 URxvt.perl-ext-common : default,matcher,tabbed
 URxvt.urlLauncher     : firefox
 URxvt.matcher.button  : 1
+! match extra custom regex
+URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 ! save lines
 URxvt.saveLines:	65535
 ! no scrollbar
